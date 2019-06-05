@@ -7,21 +7,15 @@ import time
 import requests
 from bs4 import BeautifulSoup
 #from Product import Product
-from selenium import webdriver
-from selenium.webdriver.common.keys import Keys
+
 from bs4 import BeautifulSoup
-from selenium import webdriver
-from selenium.webdriver.common.keys import Keys
-from selenium.common.exceptions import NoSuchElementException
-from selenium.webdriver.chrome.options import Options
+
 import os
 from bs4 import BeautifulSoup
 #from django.contrib.sites import requests
 import json
 from django.http import HttpResponse, HttpResponseRedirect
-from selenium.common.exceptions import NoSuchElementException
-from selenium.webdriver.common.keys import Keys
-from selenium.webdriver.chrome import webdriver
+
 #from .models import Products,Suppliers,ProductBySupplier
 from django.template import loader
 from django.shortcuts import render
@@ -30,10 +24,7 @@ from django.shortcuts import get_object_or_404
 import urllib
 import time
 import string
-#from selenium import webdriver
-#from selenium.webdriver.common.keys import Keys
-#from selenium.common.exceptions import NoSuchElementException
-#from selenium.webdriver.chrome.options import Options
+
 from django.core.exceptions import MultipleObjectsReturned,ObjectDoesNotExist
 
 from .models import ProductBySupplier,Products,Suppliers,product_in_zap
