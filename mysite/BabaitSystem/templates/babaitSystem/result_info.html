@@ -1,0 +1,20 @@
+
+{% load static %}
+{% load bootstrap4 %}
+
+<head>
+
+</head>
+<body>
+<div class="container">
+{% if results %}
+ {% for r in results %}
+       <p>{{r}}</p>
+    {% endfor %}
+
+{% else %}
+    <p>יש בעיה</p>
+{% endif %}
+<a href="http://127.0.0.1:8000/admin/BabaitSystem/">למעבר לדף הניהול כדי לראות את כל הפריטים</a>
+</div>
+</body>
