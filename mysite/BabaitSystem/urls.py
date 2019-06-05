@@ -9,5 +9,5 @@ urlpatterns = [
     path('<int:product_id>/find/', views.find, name='find'),
     path('result_info', views.result_info, name='result_info'),
 
-
 ]
+

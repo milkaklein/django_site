@@ -20,5 +20,6 @@ from django.conf.urls import include,url
 urlpatterns = [
     url('BabaitSystem/', include('BabaitSystem.urls')),
     url('admin/', admin.site.urls),
+    url('accounts/', include('django.contrib.auth.urls')),
 
 ]

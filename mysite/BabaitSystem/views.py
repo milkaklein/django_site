@@ -16,8 +16,7 @@ from django.contrib.auth.decorators import login_required
 
 
 
-
-
+@login_required()
 def search(request):
     if (request.GET.get('mybtn')):
         makat = request.GET.get('makat')
@@ -30,10 +29,7 @@ def search(request):
 
     return render(request, 'BabaitSystem/search.html')
 
-def login(request):
 
-
-    return render(request, 'registration/login.html')
 #
 # def find(request, product_id):
 #     product = get_object_or_404(Products, pk=product_id)
