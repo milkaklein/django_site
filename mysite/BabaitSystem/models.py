@@ -1,10 +1,5 @@
-#from django.db import models
-from django.db.models import Model
-from django.db.models import CharField
-from django.db.models import IntegerField
-from django.db.models import CASCADE
-from django.db.models import ForeignKey
-from django.db.models import URLField
+
+from django.db.models import *
 
 
 
@@ -41,6 +36,8 @@ class ProductBySupplier(Model):
     supplier = CharField(max_length=20)
     price = IntegerField(default=0)
     makat = CharField(max_length=50,default="")
+    is_price_up=BooleanField(default=False)
+    date=DateField(auto_now=True)
 
     def __str__(self):
         return self.product+" אצל "+self.supplier
@@ -60,5 +57,12 @@ class product_in_zap(Model):
     class Meta:
         verbose_name = 'מוצרים בזאפ'
         verbose_name_plural = 'מוצרים בזאפ'
+
+
+class price_in_past(Model):
+    makat = CharField(max_length=50, default="")
+    date=DateField()
+    price = IntegerField(default=0)
+    supplier = CharField(max_length=20,default="")
 
 

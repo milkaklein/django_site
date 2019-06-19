@@ -22,7 +22,15 @@ def search(request):
         makat = request.GET.get('makat')
         if(makat):
             results = find_all(makat)
-            context = {'results': results}
+            data_zap= product_in_zap.objects.filter(makat=makat)
+            data_suppliers=ProductBySupplier.objects.filter(makat=makat)
+
+
+
+            context = {'results': results
+                       ,'data_zap':data_zap,
+                       'data_suppliers':data_suppliers
+                       }
             return render(request, 'BabaitSystem/result_info.html', context)
 
 
@@ -52,6 +60,13 @@ def result_info(request):
     ProductBySupplier_list = ProductBySupplier.objects.order_by('price')
     context = {
         'ProductBySupplier_list': ProductBySupplier_list,
+    }
+    return render(request, 'BabaitSystem/result_info.html', context)
+
+def prices_in_past(request):
+    prices_in_past_list = price_in_past.objects('price')
+    context = {
+        'ProductBySupplier_list': prices_in_past_list,
     }
     return render(request, 'BabaitSystem/result_info.html', context)
 

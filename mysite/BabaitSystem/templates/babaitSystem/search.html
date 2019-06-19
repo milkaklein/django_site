@@ -5,17 +5,20 @@
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
     <link rel="stylesheet" href="{% static 'css/BabaitSystem.css' %}">
-
+    <title>דף חיפוש</title>
 </head>
 <body>
 <div class="container">
 
-<form action="#" method="get" class="form-horizontal">
+<form action="#" method="get" class="form-horizontal" id="myForm">
 {% csrf_token %}
+<div class="form-group">
+        <label class="sr-only" for="makat">הכנס כאן את הדגם שברצונך לסרוק:</label>
 
-     <input type="text" id="makat" name="makat" placeholder="הכנס כאן מקט מבוקש"><br><br>
-    <input type="submit" value="בדיקה" name="mybtn" id="mybtn">
+     <input type="text" id="makat" name="makat" placeholder="דגם" ><br><br>
+    </div>
 
+    <input type="submit" value="בדיקה" name="mybtn" id="mybtn" class="btn-primary">
 </form>
     <a></a>
 </div>

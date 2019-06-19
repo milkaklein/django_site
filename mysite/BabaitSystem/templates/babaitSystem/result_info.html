@@ -1,12 +1,83 @@
-
+<head>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+</head>
 {% load static %}
 {% load bootstrap4 %}
 
 <head>
-
+<title>תוצאות</title>
 </head>
 <body>
 <div class="container">
+    {% if data_zap %}
+    <div id="table_results_zap" >
+        <table class="table-bordered table table-striped table-responsive">
+            <tr class="Success">
+
+            <th>ספק</th>
+            <th>מחיר</th>
+            <th>מקט</th>
+            <th>שם מוצר</th>
+
+            </tr>
+            {% for z in data_zap %}
+                   <tr>
+                       <td>{{z.supplier}}</td>
+                       <td>{{z.price}}</td>
+                       <td>{{z.makat}}</td>
+                       <td>{{z.product}}</td>
+
+
+
+                   </tr>
+             {% endfor %}
+            </table>
+        </div>
+    {% else %}
+        <p>יש בעיה בנתונים מזאפ</p>
+
+    {% endif %}
+    {% if data_suppliers %}
+    <div id="table_results_sup">
+        <table  class="table-bordered table table-striped">
+            <tr class="Info">
+
+            <th>ספק</th>
+            <th>מחיר</th>
+            <th>מקט</th>
+            <th>שם מוצר</th>
+                <th>אם היתה עליה במחיר?</th>
+            </tr>
+            {% for s in data_suppliers %}
+                   <tr>
+                       <td>{{s.supplier}}</td>
+                       <td>{{s.price}}</td>
+                       <td>{{s.makat}}</td>
+                       <td>{{s.product}}</td>
+                       {% if s.is_price_up%}
+                             <td><span class="glyphicon glyphicon-ok"></span></td>
+                       {% else %}
+                             <td><span class="glyphicon glyphicon-remove"></span></td>
+                       {% endif %}
+
+
+
+
+                   </tr>
+             {% endfor %}
+            </table>
+    </div>
+    {% else %}
+    <p>אין נתונים מספקים</p>
+
+
+
+
+
+
+    {% endif %}
+
 {% if results %}
  {% for r in results %}
        <p>{{r}}</p>
